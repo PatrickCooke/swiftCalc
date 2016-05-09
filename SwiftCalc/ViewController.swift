@@ -58,8 +58,8 @@ class ViewController: UIViewController {
         }
         myLabel.text = String(solution)
         print(solution)
+        leftSideFloat = solution
         solution = 0
-        leftSideFloat = 0
         rightSideFloat = 0
         currentNumberLabel = ""
         operatorPressed = false
@@ -77,14 +77,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func percentButtonPressed(sender: UIButton) {
+        currentNumberLabel = myLabel.text!
         currentNumberFloat = Float(currentNumberLabel)! / 100
         myLabel.text = String(currentNumberFloat)
         currentNumberLabel = String(currentNumberFloat)
-        if operatorPressed {
-            rightSideFloat = Float(currentNumberLabel)!
-        } else if !operatorPressed {
-            leftSideFloat = Float(currentNumberLabel)!
-        }
+        leftSideFloat = Float(currentNumberLabel)!
         print(currentNumberLabel)
     }
     
@@ -93,7 +90,7 @@ class ViewController: UIViewController {
         solution = 0
         leftSideFloat = 0
         rightSideFloat = 0
-        currentNumberLabel = "0"
+        currentNumberLabel = ""
         operatorPressed = false
         operatorType = ""
         myLabel.text = ""
